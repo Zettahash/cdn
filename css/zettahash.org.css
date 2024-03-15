@@ -165,14 +165,14 @@ a[href*='https://webflow'] {
 
 .provider-flex {
   flex-direction: row;
-    align-items: flex-start;
-    display: flex;
+  align-items: flex-start;
+  display: flex;
   animation: loopProviderFlex 60s linear forwards infinite
 }
-  
-  .provider-flex:hover{
-      animation-play-state: paused;
-  }
+
+.provider-flex:hover {
+  animation-play-state: paused;
+}
 
 .tile-flex-animated-container::before, .tile-flex-animated-container::after {
   content: '';
@@ -207,64 +207,75 @@ a[href*='https://webflow'] {
     transform: translateX(calc(-100% + (var(--parent-max-width) * 1)));
   }
 }
-  
-  .provider-tile{
-      flex-direction: row;
-    align-items: flex-start;
-    display: flex;
-        align-items: center;
-    gap: 15px;
-    transform-origin: 50% 50%;
-    transition: 200ms ease;
-    cursor:pointer;
-  }
-  
-  .provider-tile:hover{
+
+.provider-tile {
+  flex-direction: row;
+  align-items: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transform-origin: 50% 50%;
+  transition: 200ms ease;
+  cursor: pointer;
+}
+
+.provider-tile:hover {
   transform: scale(1.1);
-  }
+}
 
 .w--current:not(.locale-link-item) {
   color: var(--colours--link) !important;
 }
-  
-  .nav-link.btn:visited:hover {
-    color: var(--colours--neutral-10);
-}
-  .nav-link.btn.pri.nav-pri:visited:hover{
-  color: var(--colours--neutral-0);
-  }
 
-  .rtl .hero{
-  clip-path: polygon( 0% 0%, 100% 0%, 100% 100%,35% 100%,34.8% 99.95%,34.6% 99.85%,34.5% 99.8%,34% 99.4%,33.7% 99%,33.6% 98.9%,33.4% 98.6%,33.24% 98.4%,33% 98%,1% 23.5%,1% 23.5%,1% 23.5%,0.4% 22%,0.1% 21%,0% 20%, 0% 0% ) !important;
-  }
-  
-  a.btn:visited :hover{
-  	color: inherit;
-  }
-  .rtl .pad-menu-on-hover:hover{
+.nav-link.btn:visited:hover {
+  color: var(--colours--neutral-10);
+}
+
+.nav-link.btn.pri.nav-pri:visited:hover {
+  color: var(--colours--neutral-0);
+}
+
+.rtl .hero {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 35% 100%, 34.8% 99.95%, 34.6% 99.85%, 34.5% 99.8%, 34% 99.4%, 33.7% 99%, 33.6% 98.9%, 33.4% 98.6%, 33.24% 98.4%, 33% 98%, 1% 23.5%, 1% 23.5%, 1% 23.5%, 0.4% 22%, 0.1% 21%, 0% 20%, 0% 0%) !important;
+}
+
+a.btn:visited :hover {
+  color: inherit;
+}
+
+.rtl .pad-menu-on-hover:hover {
   padding-left: unset !important;
-    padding-right: 4px;
-  }
-  .rtl .sidebar-dropdown-wrapper:hover{
-  	transform: translateX(-4px) !important;
-  }
-  .rtl [style*="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-90deg)"],
-  .rtl .line-rounded-icon.dropdown-arrow-sidebar_{
-      transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(90deg) skew(0deg, 0deg) !important;
-  }
-  
-  .w-richtext *:not(h1):not(h2):not(h3):not(h4):not(h5) {
-    font-size: inherit;
+  padding-right: 4px;
 }
-  .pseudo-gradient-overlay {
-    position: relative;
+
+.rtl .sidebar-dropdown-wrapper:hover {
+  transform: translateX(-4px) !important;
 }
-  .pseudo-gradient-overlay::after {
-    content: '';
-    height: 60%;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    background: linear-gradient(0deg, var(--colours--dark-navy), transparent);
-    left: 0;
+
+.rtl [style*="transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-90deg)"],
+.rtl .line-rounded-icon.dropdown-arrow-sidebar_ {
+  transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(90deg) skew(0deg, 0deg) !important;
+}
+
+.rtl .container.bg-blur-2.tile-flex-animated-container {
+  direction: ltr;
+}
+
+
+.w-richtext *:not(h1):not(h2):not(h3):not(h4):not(h5) {
+  font-size: inherit;
+}
+
+.pseudo-gradient-overlay {
+  position: relative;
+}
+
+.pseudo-gradient-overlay::after {
+  content: '';
+  height: 60%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(0deg, var(--colours--dark-navy), transparent);
+  left: 0;
 }
