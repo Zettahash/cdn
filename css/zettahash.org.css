@@ -258,7 +258,7 @@ a.btn:visited :hover {
 }
 
 .rtl .container.bg-blur-2.tile-flex-animated-container {
-  direction: ltr;
+  direction: ltr !important;
 }
 
 
