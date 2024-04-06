@@ -55,6 +55,11 @@ a[href*='https://webflow'] {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.violet-gradient {
+  background: -webkit-linear-gradient(60deg, #f276ff, #69b7ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 .body-wrapper {
   overflow-x: hidden;
