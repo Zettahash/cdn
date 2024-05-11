@@ -77,7 +77,7 @@ for (const itm of document.querySelectorAll(".import-to-metamask")) {
           type: 'ERC20',
           options: {
             address: '0xb630D7388e3466Af4952B6E5D8Db63D828140e5d',
-            symbol: 'ZH',
+            symbol: 'ZHD',
             decimals: 18,
             image: 'https://uploads-ssl.webflow.com/65d4f59afabe990d05bd8b5f/65da72d13d4f02927b3d58d4_logo-download-large-circle-1024x1024.png',
           },
