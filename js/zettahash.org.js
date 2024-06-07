@@ -10,10 +10,22 @@ for (const logo of document.querySelectorAll(".zh-svg-logo")) {
   })
 }
 
-
+if (window.location.protocol != 'https:') {
+  if (location.href.indexOf("808") < 0)
+    location.href = location.href.replace("http://", "https://")
+}
 
 
 let path = window.location.pathname.indexOf("/") == 0 ? window.location.pathname.substring(1).split("/") : window.location.pathname
+//REDIRECT TO EN WHEN NO LOCALE SET
+
+const availableLocales = ['en', 'ar', 'ko']
+let locale = path[0]
+const host = window.location.host
+if (availableLocales.indexOf(locale) < 0) {
+  location.href = location.href.replace(`https://${host}/`, `https://${host}/en/${!path[1]?'home':''}`)
+}
+
 
 //Allowing for locale subdirectory
 if (path.length == 3) {
