@@ -23,7 +23,7 @@ const availableLocales = ['en', 'ar', 'ko']
 let locale = path[0]
 const host = window.location.host
 if (availableLocales.indexOf(locale) < 0) {
-  location.href = location.href.replace(`https://${host}/`, `https://${host}/en/${!path[1]?'home':''}`)
+  location.href = location.href.replace(`https://${host}/`, `https://${host}/en/${!path[1] ? 'home' : ''}`)
 }
 
 
@@ -43,9 +43,9 @@ if (path.length == 3) {
       parentEle.querySelector('nav').setAttribute('style', `opacity: 1; display: block; width: 243px;`)
       parentEle.querySelector('nav').setAttribute('class', `dropdown-list-sidebar w-dropdown-list w--open`)
       for (const link of parentEle.querySelectorAll(`[identifier]`)) {
-        try { link.querySelector('.sidebar-dropdown-wrapper').classList.remove('w--current') }catch(e){}
+        try { link.querySelector('.sidebar-dropdown-wrapper').classList.remove('w--current') } catch (e) { }
       }
-      try { idEle.querySelector('.sidebar-dropdown-wrapper').classList.add('w--current') }catch(e){}
+      try { idEle.querySelector('.sidebar-dropdown-wrapper').classList.add('w--current') } catch (e) { }
     }
   }
   //progenitor
