@@ -42,6 +42,10 @@ if (path.length == 3) {
       parentEle.querySelector('.line-rounded-icon.dropdown-arrow-sidebar').setAttribute('style', `transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;`)
       parentEle.querySelector('nav').setAttribute('style', `opacity: 1; display: block; width: 243px;`)
       parentEle.querySelector('nav').setAttribute('class', `dropdown-list-sidebar w-dropdown-list w--open`)
+      for (const link of parentEle.querySelectorAll(`[identifier]`)) {
+        try { link.querySelector('.sidebar-dropdown-wrapper').classList.remove('w--current') }catch(e){}
+      }
+      try { idEle.querySelector('.sidebar-dropdown-wrapper').classList.add('w--current') }catch(e){}
     }
   }
   //progenitor
