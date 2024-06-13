@@ -289,7 +289,7 @@ a.btn:visited :hover {
 .position-open .address {
   display: none !important;
 }
-
+.position-open .hide-if-open{display: none !important;}
 .profile:not(.position-open) .field-status {
   display: none !important;
 }
