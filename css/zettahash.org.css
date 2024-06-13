@@ -55,6 +55,7 @@ a[href*='https://webflow'] {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .violet-gradient {
   background: -webkit-linear-gradient(60deg, #f276ff, #69b7ff);
   -webkit-background-clip: text;
@@ -285,5 +286,10 @@ a.btn:visited :hover {
   left: 0;
 }
 
-.position-open .address{display:none !important;}
-.profile:not(.position-open) .field-status{display:none !important;}
+.position-open .address {
+  display: none !important;
+}
+
+.profile:not(.position-open) .field-status {
+  display: none !important;
+}
