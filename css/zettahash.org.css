@@ -284,3 +284,6 @@ a.btn:visited :hover {
   background: linear-gradient(0deg, var(--colours--dark-navy), transparent);
   left: 0;
 }
+
+.position-open .address{display:none !important;}
+.profile:not(.position-open) .field-status{display:none !important;}
