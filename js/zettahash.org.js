@@ -175,3 +175,18 @@ if (document.querySelectorAll("[alt*='banner-behind-text']").length >= 1) {
   fig.style['z-index'] = '-1'
   div.classList.add('pseudo-gradient-overlay')
 }
+
+
+try {
+  if (document.querySelector('.heading-counter-em').length > 0) {
+    document.querySelector('.heading-counter-em').insertAdjacentHTML('beforeend', ` ${document.querySelectorAll(`#electedMembers .profile.position-open`).length}`)
+  }
+
+  if (document.querySelector('.heading-counter-hasher').length > 0) {
+    document.querySelector('.heading-counter-hasher').insertAdjacentHTML('beforeend', ` ${document.querySelectorAll(`#hashers .profile.position-open`).length}`)
+  }
+  
+  let total = Number(document.querySelectorAll(`#electedMembers .profile.position-open`).length) + Number(document.querySelectorAll(`#hashers .profile.position-open`).length)
+
+  document.querySelector('.total-positions-free').insertAdjacentHTML('beforeend', ` ${total}`)
+} catch (e) { }

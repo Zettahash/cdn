@@ -297,3 +297,27 @@ a.btn:visited :hover {
 .hide-non-open-position-tiles .profile:not(.position-open) {
   display: none !important;
 }
+
+.heading-counter::after{
+	content: attr(data-open-positions-count);
+  margin-left: 10px;
+}
+.rotunda-img{
+	transform-origin: 50% 50%;
+  animation: rotundaSpin 60s forwards linear infinite;
+}
+.rotunda-img:not(.smaller){
+	animation-duration: 120s;
+}
+.rotunda-img.smaller:not(.smallest){
+	animation-duration: 80s;
+}
+.rotunda-img.smallest{
+	animation-duration: 40s;
+}
+
+@keyframes rotundaSpin{
+  100%{
+		transform: rotate(360deg);
+	}
+}
