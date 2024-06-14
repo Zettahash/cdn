@@ -293,3 +293,7 @@ a.btn:visited :hover {
 .profile:not(.position-open) .field-status {
   display: none !important;
 }
+
+.hide-non-open-position-tiles .profile:not(.position-open) {
+  display: none !important;
+}
