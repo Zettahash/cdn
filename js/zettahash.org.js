@@ -67,43 +67,44 @@ if (path.length == 3) {
 }
 
 
+try {
+  for (const c2c of document.querySelectorAll(".click-to-copy")) {
+    c2c.addEventListener("click", (event) => {
+      let text = event.target.hasAttribute('data-copy') ? event.target.getAttribute('data-copy') : event.target.innerHTML
+      let temp = document.createElement('input')
+      let originalText = event.target.innerHTML
+      event.target.innerHTML = `${originalText} ✅`
+      temp.classList.add("temp-input")
+      document.body.append(temp)
+      temp.value = text
+      temp.select()
+      document.execCommand("copy")
+      document.querySelector('.temp-input').remove()
+      setTimeout(() => { event.target.innerHTML = `${originalText}` }, 2500)
+    })
+  }
+  for (const itm of document.querySelectorAll(".import-to-metamask")) {
+    itm.addEventListener("click", async () => {
+      try {
 
-for (const c2c of document.querySelectorAll(".click-to-copy")) {
-  c2c.addEventListener("click", (event) => {
-    let text = event.target.hasAttribute('data-copy') ? event.target.getAttribute('data-copy') : event.target.innerHTML
-    let temp = document.createElement('input')
-    let originalText = event.target.innerHTML
-    event.target.innerHTML = `${originalText} ✅`
-    temp.classList.add("temp-input")
-    document.body.append(temp)
-    temp.value = text
-    temp.select()
-    document.execCommand("copy")
-    document.querySelector('.temp-input').remove()
-    setTimeout(() => { event.target.innerHTML = `${originalText}` }, 2500)
-  })
-}
-for (const itm of document.querySelectorAll(".import-to-metamask")) {
-  itm.addEventListener("click", async () => {
-    try {
-
-      const wasAdded = await ethereum.request({
-        method: 'wallet_watchAsset',
-        params: {
-          type: 'ERC20',
-          options: {
-            address: '0xb630D7388e3466Af4952B6E5D8Db63D828140e5d',
-            symbol: 'ZHD',
-            decimals: 18,
-            image: 'https://uploads-ssl.webflow.com/65d4f59afabe990d05bd8b5f/65da72d13d4f02927b3d58d4_logo-download-large-circle-1024x1024.png',
+        const wasAdded = await ethereum.request({
+          method: 'wallet_watchAsset',
+          params: {
+            type: 'ERC20',
+            options: {
+              address: '0xb630D7388e3466Af4952B6E5D8Db63D828140e5d',
+              symbol: 'ZHD',
+              decimals: 18,
+              image: 'https://uploads-ssl.webflow.com/65d4f59afabe990d05bd8b5f/65da72d13d4f02927b3d58d4_logo-download-large-circle-1024x1024.png',
+            },
           },
-        },
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  })
-}
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    })
+  }
+} catch (e) { }
 
 
 
@@ -118,63 +119,71 @@ try {
 } catch (err) { console.log('no current language detected') }
 
 
+try {
 
-if (document.querySelectorAll(".provider-flex").length > 0) {
-  let flex = document.querySelector(".provider-flex")
-  let parentFlex = document.querySelector(".provider-flex").parentNode
-  let newFlex = document.createElement("div")
-  newFlex.classList.add("provider-flex")
-  newFlex.classList.add("animation-reverse")
-  for (let i = flex.querySelectorAll(".provider-tile").length - 1; i >= 0; i--) {
-    let newTile = document.createElement("a")
-    newTile.setAttribute("target", "_blank")
-    newTile.setAttribute("href", flex.querySelectorAll(".provider-tile")[i].getAttribute('href'))
-    newTile.classList.add("provider-tile")
-    newTile.innerHTML = flex.querySelectorAll(".provider-tile")[i].innerHTML
-    newFlex.append(newTile)
-  }
-  parentFlex.append(newFlex)
-}
-
-if (document.querySelector(".tile-flex-animated-container")) {
-  let providerMainContainer = document.querySelector(".tile-flex-animated-container")
-  for (const parent of document.querySelectorAll(".provider-flex")) {
-    for (const tile of parent.querySelectorAll(".provider-tile")) {
-      let newTile = document.createElement("div")
-      newTile.setAttribute("class", `w-layout-hflex provider-tile`)
-      newTile.innerHTML = tile.innerHTML
-      parent.append(newTile)
+  if (document.querySelectorAll(".provider-flex").length > 0) {
+    let flex = document.querySelector(".provider-flex")
+    let parentFlex = document.querySelector(".provider-flex").parentNode
+    let newFlex = document.createElement("div")
+    newFlex.classList.add("provider-flex")
+    newFlex.classList.add("animation-reverse")
+    for (let i = flex.querySelectorAll(".provider-tile").length - 1; i >= 0; i--) {
+      let newTile = document.createElement("a")
+      newTile.setAttribute("target", "_blank")
+      newTile.setAttribute("href", flex.querySelectorAll(".provider-tile")[i].getAttribute('href'))
+      newTile.classList.add("provider-tile")
+      newTile.innerHTML = flex.querySelectorAll(".provider-tile")[i].innerHTML
+      newFlex.append(newTile)
     }
-    parent.style.setProperty("--parent-max-width", `${providerMainContainer.offsetWidth}px`)
+    parentFlex.append(newFlex)
   }
-}
+} catch (e) { }
+try {
 
-
-
-if (document.querySelectorAll(".em-portfolio-links").length > 0) {
-  for (const profile of document.querySelectorAll(".profile")) {
-    if (!profile.querySelector(".em-portfolio-links")) { continue }
-    let links = profile.querySelectorAll(".em-portfolio-links a.position")
-    if (links.length <= 0) { continue }
-    if (links.length == 1) {
-      let href = links[0].querySelector("[slug]").getAttribute('slug')
-      const loc = `/${window.location.pathname.split("/")[1]}/portfolio/${href}`
-      profile.style.cursor = 'pointer'
-      profile.addEventListener("click", () => { window.location = loc })
+  if (document.querySelector(".tile-flex-animated-container")) {
+    let providerMainContainer = document.querySelector(".tile-flex-animated-container")
+    for (const parent of document.querySelectorAll(".provider-flex")) {
+      for (const tile of parent.querySelectorAll(".provider-tile")) {
+        let newTile = document.createElement("div")
+        newTile.setAttribute("class", `w-layout-hflex provider-tile`)
+        newTile.innerHTML = tile.innerHTML
+        parent.append(newTile)
+      }
+      parent.style.setProperty("--parent-max-width", `${providerMainContainer.offsetWidth}px`)
     }
   }
-}
+} catch (e) { }
 
 
+try {
 
-if (document.querySelectorAll("[alt*='banner-behind-text']").length >= 1) {
-  let div = document.querySelectorAll("[alt*='banner-behind-text']")[0].parentNode
-  let fig = document.querySelectorAll("[alt*='banner-behind-text']")[0].parentNode.parentNode
-  fig.style['margin-bottom'] = '-60px'
-  fig.style['position'] = 'relative'
-  fig.style['z-index'] = '-1'
-  div.classList.add('pseudo-gradient-overlay')
-}
+  if (document.querySelectorAll(".em-portfolio-links").length > 0) {
+    for (const profile of document.querySelectorAll(".profile")) {
+      if (!profile.querySelector(".em-portfolio-links")) { continue }
+      let links = profile.querySelectorAll(".em-portfolio-links a.position")
+      if (links.length <= 0) { continue }
+      if (links.length == 1) {
+        let href = links[0].querySelector("[slug]").getAttribute('slug')
+        const loc = `/${window.location.pathname.split("/")[1]}/portfolio/${href}`
+        profile.style.cursor = 'pointer'
+        profile.addEventListener("click", () => { window.location = loc })
+      }
+    }
+  }
+} catch (e) { }
+
+try {
+
+
+  if (document.querySelectorAll("[alt*='banner-behind-text']").length >= 1) {
+    let div = document.querySelectorAll("[alt*='banner-behind-text']")[0].parentNode
+    let fig = document.querySelectorAll("[alt*='banner-behind-text']")[0].parentNode.parentNode
+    fig.style['margin-bottom'] = '-60px'
+    fig.style['position'] = 'relative'
+    fig.style['z-index'] = '-1'
+    div.classList.add('pseudo-gradient-overlay')
+  }
+} catch (e) { }
 
 
 try {
@@ -185,7 +194,7 @@ try {
   if (document.querySelector('.heading-counter-hasher').length > 0) {
     document.querySelector('.heading-counter-hasher').insertAdjacentHTML('beforeend', ` ${document.querySelectorAll(`#hashers .profile.position-open`).length}`)
   }
-  
+
   let total = Number(document.querySelectorAll(`#electedMembers .profile.position-open`).length) + Number(document.querySelectorAll(`#hashers .profile.position-open`).length)
 
   document.querySelector('.total-positions-free').insertAdjacentHTML('beforeend', ` ${total}`)
