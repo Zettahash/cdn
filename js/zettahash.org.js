@@ -26,7 +26,6 @@ if (availableLocales.indexOf(locale) < 0) {
   location.href = location.href.replace(`https://${host}/`, `https://${host}/en/${!path[1] ? 'home' : ''}`)
 }
 
-
 //Allowing for locale subdirectory
 if (path.length == 3) {
   const parent = path[1]
