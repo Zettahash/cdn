@@ -65,6 +65,10 @@ if (path.length == 3) {
   }
 }
 
+if (window.location.pathname.indexOf("homeindex.html") > -1) {
+  window.location = window.location.href.replace("homeindex.html", "home")
+}
+
 
 try {
   for (const c2c of document.querySelectorAll(".click-to-copy")) {
