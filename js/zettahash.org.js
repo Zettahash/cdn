@@ -19,6 +19,7 @@ if (window.location.protocol != 'https:') {
 let path = window.location.pathname.indexOf("/") == 0 ? window.location.pathname.substring(1).split("/") : window.location.pathname
 //REDIRECT TO EN WHEN NO LOCALE SET
 
+//ADD NEW LOCALES
 const availableLocales = ['en', 'ko', 'zh', 'ar', 'pt', 'es', 'fr', 'de', 'ru']
 let locale = path[0]
 const host = window.location.host
