@@ -27,6 +27,17 @@ if (availableLocales.indexOf(locale) < 0) {
   location.href = location.href.replace(`https://${host}/`, `https://${host}/en/${!path[1] ? 'home' : ''}`)
 }
 
+//Fallback for improperly localised links
+for (const localisedLink of document.querySelectorAll("a")) {
+  if (localisedLink.hasAttribute("href")) {
+    if (localisedLink.getAttribute("href").includes("/en/")) {
+      if (locale !== 'en') {
+        localisedLink.setAttribute("href", localisedLink.getAttribute("href").replace("/en/", `/${locale}/`))
+      }
+    }
+  }
+}
+
 //Allowing for locale subdirectory
 if (path.length == 3) {
   const parent = path[1]
