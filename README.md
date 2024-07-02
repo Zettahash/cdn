@@ -1,6 +1,9 @@
 
 # Zettahash DAO CDN
 
+![badge](https://img.shields.io/badge/Current_Deployment_Environment-Couudflare-orange)
+
+
 Welcome to the Zettahash DAO CDN repository! This repository serves as a tiny repository of consumable files intended for use in Zettahash applications. It currently holds CSS and JavaScript files for injection on the Zettahash.org sites, including both the Webflow sites and the custom GitHub Pages site.
 
 ## Contents
